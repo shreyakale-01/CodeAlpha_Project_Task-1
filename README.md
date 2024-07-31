@@ -1,9 +1,11 @@
 # CodeAlpha_Project_Task-1
 Developed a basic network sniffer using python which catches the TCP, UDP, and ICMP data packets.
-from scapy.all import sniff, IP, Ether, TCP, UDP, ICMP
 
-def sniff_packets(packet):
-    if IP in packet: 
+
+  from scapy.all import sniff, IP, Ether, TCP, UDP, ICMP
+
+  def sniff_packets(packet):
+     if IP in packet: 
         ip_src = packet[IP].src
         ip_dst = packet[IP].dst
         proto = packet[IP].proto
@@ -45,6 +47,5 @@ def sniff_packets(packet):
             print(f"    Payload: {payload}")
         else:
             print("     Other protocol or unrecognized packet")
-
-if _name_ == "_main_":
-    sniff(prn=sniff_packets, store=0)
+  if _name_ == "_main_":
+     sniff(prn=sniff_packets, store=0)

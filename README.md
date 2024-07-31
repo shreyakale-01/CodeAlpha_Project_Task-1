@@ -2,9 +2,10 @@
 Developed a basic network sniffer using python which catches the TCP, UDP, and ICMP data packets.
 
 
-  from scapy.all import sniff, IP, Ether, TCP, UDP, ICMP
+     from scapy.all import sniff, IP, Ether, TCP, UDP, ICMP
 
-  def sniff_packets(packet):
+      def sniff_packets(packet):
+  
      if IP in packet: 
         ip_src = packet[IP].src
         ip_dst = packet[IP].dst
@@ -18,7 +19,6 @@ Developed a basic network sniffer using python which catches the TCP, UDP, and I
         print(f"Time: {time}, Source IP: {ip_src}, Destination IP: {ip_dst}, Protocol: {proto}, Length: {length}")
         print(f"    TTL: {ttl}, Flags: {flags}, Fragment Offset: {frag_offset}")
 
-        # Additional information based on protocol
         if Ether in packet:
             src_mac = packet[Ether].src
             dst_mac = packet[Ether].dst
@@ -47,5 +47,5 @@ Developed a basic network sniffer using python which catches the TCP, UDP, and I
             print(f"    Payload: {payload}")
         else:
             print("     Other protocol or unrecognized packet")
-  if _name_ == "_main_":
-     sniff(prn=sniff_packets, store=0)
+      if _name_ == "_main_":
+           sniff(prn=sniff_packets, store=0)
